@@ -1,25 +1,11 @@
 [build]
-  # 构建命令 - 使用CI环境变量避免交互式安装
-  command = "CI=false npm install --legacy-peer-deps && CI=false npm run build"
-
-  # 构建输出目录
+  command = "npm install --legacy-peer-deps && npm run build:netlify"
   publish = "build"
 
 [build.environment]
-  # Node.js 版本 - 使用18.x LTS
-  NODE_VERSION = "18.18.0"
-
-  # 设置 Node.js 选项以支持旧版 OpenSSL
-  NODE_OPTIONS = "--openssl-legacy-provider --no-experimental-fetch"
-
-  # 跳过预检查
+  NODE_VERSION = "18"
+  NODE_OPTIONS = "--openssl-legacy-provider"
   SKIP_PREFLIGHT_CHECK = "true"
-
-  # 生产环境构建
-  GENERATE_SOURCEMAP = "false"
-
-  # 禁用严格模式以兼容旧版本
-  NODE_ENV = "production"
 
 # 重定向规则（用于单页应用）
 [[redirects]]
