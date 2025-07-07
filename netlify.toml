@@ -5,10 +5,10 @@
   # 构建输出目录
   publish = "build"
 
-  # Node.js 版本 - 使用18.x LTS
-  environment = { NODE_VERSION = "18.18.0" }
-
 [build.environment]
+  # Node.js 版本 - 使用18.x LTS
+  NODE_VERSION = "18.18.0"
+
   # 设置 Node.js 选项以支持旧版 OpenSSL
   NODE_OPTIONS = "--openssl-legacy-provider --no-experimental-fetch"
 
