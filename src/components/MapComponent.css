@@ -1,0 +1,1150 @@
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.legend {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  backdrop-filter: blur(5px);
+}
+
+.legend h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #34495e;
+}
+
+.legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 2px solid #fff;
+}
+
+.legend-icon.power-plant {
+  background-color: #ff6600;
+}
+
+.legend-icon.substation {
+  background-color: #0066ff;
+}
+
+.legend-icon.transmission {
+  background-color: #ff3300;
+}
+
+.legend-icon.meter-box {
+  background-color: #00ccff;
+}
+
+/* 控制面板样式 */
+.control-panel {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  backdrop-filter: blur(5px);
+}
+
+.control-panel h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.control-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #3498db;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.control-btn:hover {
+  background: #2980b9;
+}
+
+.control-btn.active {
+  background: #28a745;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+}
+
+.control-btn.active:hover {
+  background: #218838;
+}
+
+.control-btn:last-child {
+  margin-bottom: 0;
+}
+
+.validation-btn {
+  background: #e74c3c;
+}
+
+.validation-btn:hover {
+  background: #c0392b;
+}
+
+/* 校验结果面板样式 */
+.validation-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 350px;
+  max-height: 70vh;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #e74c3c;
+  color: white;
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.panel-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.panel-header button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.panel-content {
+  padding: 15px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.validation-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.device-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.device-type {
+  font-size: 12px;
+  color: #7f8c8d;
+  background: #ecf0f1;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.error-count {
+  font-size: 14px;
+  color: #e74c3c;
+  margin-bottom: 8px;
+}
+
+.error-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.error-tag {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+}
+
+.error-tag.error {
+  background: #e74c3c;
+}
+
+.error-tag.warning {
+  background: #f39c12;
+}
+
+/* 异常表计面板样式 */
+.abnormal-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 400px;
+  max-height: 70vh;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.abnormal-panel .panel-header {
+  background: #f39c12;
+}
+
+.abnormal-list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.abnormal-item {
+  border-bottom: 1px solid #ecf0f1;
+  padding: 12px;
+}
+
+.abnormal-item:last-child {
+  border-bottom: none;
+}
+
+.meter-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.meter-id {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.householder {
+  color: #34495e;
+}
+
+.meter-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.address {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.status {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+}
+
+.status.通信故障 {
+  background: #e74c3c;
+}
+
+.status.长期不上线 {
+  background: #e67e22;
+}
+
+.status.数据错误 {
+  background: #f39c12;
+}
+
+.last-online {
+  font-size: 11px;
+  color: #95a5a6;
+}
+
+/* 线损分析面板样式 */
+.loss-analysis-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 450px;
+  max-height: 70vh;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.loss-analysis-panel .panel-header {
+  background: #3498db;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.chart-type-btn {
+  padding: 6px 12px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.chart-type-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chart-type-btn.active {
+  background: #2980b9;
+  border-color: #2980b9;
+}
+
+.loss-chart {
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.loss-chart:last-child {
+  border-bottom: none;
+}
+
+.loss-chart h4 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.chart-container {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.legend-theoretical,
+.legend-actual {
+  font-size: 12px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.legend-theoretical::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 3px;
+  background: #3498db;
+}
+
+.legend-actual::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 3px;
+  background: #e74c3c;
+}
+
+.chart-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 80px;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.bar-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+.bar {
+  width: 12px;
+  min-height: 5px;
+  border-radius: 2px;
+}
+
+.bar.theoretical {
+  background: #3498db;
+}
+
+.bar.actual {
+  background: #e74c3c;
+}
+
+/* 折线图样式 */
+.line-chart {
+  width: 100%;
+  height: 200px;
+  margin: 10px 0;
+}
+
+.line-chart svg {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.bar-label {
+  font-size: 10px;
+  color: #7f8c8d;
+}
+
+/* 信息窗口样式 */
+.info-window {
+  padding: 15px;
+  min-width: 200px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.meter-box-window {
+  min-width: 350px;
+  max-width: 450px;
+}
+
+.info-window h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.info-window p {
+  margin: 6px 0;
+  color: #34495e;
+}
+
+.info-window .status {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: white;
+}
+
+.info-window .status.正常 {
+  background: #27ae60;
+}
+
+.info-window .status.维护 {
+  background: #f39c12;
+}
+
+.info-window .status.故障 {
+  background: #e74c3c;
+}
+
+.info-window .status.停运 {
+  background: #95a5a6;
+}
+
+.info-window .status.偏低 {
+  background: #e67e22;
+}
+
+.btn-detail,
+.btn-fix {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #3498db;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-detail:hover,
+.btn-fix:hover {
+  background: #2980b9;
+}
+
+.btn-fix {
+  background: #e74c3c;
+}
+
+.btn-fix:hover {
+  background: #c0392b;
+}
+
+/* 校验错误信息窗口样式 */
+.validation-error {
+  border-left: 4px solid #e74c3c;
+}
+
+.error-list {
+  margin: 10px 0;
+}
+
+.error-item {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  background: #f8f9fa;
+  border-left: 3px solid #e74c3c;
+}
+
+.error-item.warning {
+  border-left-color: #f39c12;
+}
+
+.error-type {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.error-message {
+  color: #2c3e50;
+}
+
+.error-field {
+  font-size: 11px;
+  color: #7f8c8d;
+  margin-left: 8px;
+}
+
+/* 打印样式 */
+@media print {
+  .map-controls,
+  .validation-panel,
+  .abnormal-panel,
+  .loss-analysis-panel {
+    display: none;
+  }
+  
+  .map-container {
+    height: 100vh;
+  }
+  
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .map-controls {
+    top: 10px;
+    left: 10px;
+    gap: 10px;
+  }
+  
+  .legend,
+  .control-panel {
+    min-width: 120px;
+    padding: 10px;
+  }
+  
+  .validation-panel,
+  .abnormal-panel,
+  .loss-analysis-panel {
+    top: 10px;
+    right: 10px;
+    width: 300px;
+  }
+  
+  .chart-data {
+    height: 60px;
+  }
+  
+  .bar {
+    width: 8px;
+  }
+}
+
+/* 表箱布局切换样式 */
+.meter-layout-toggle {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.meter-layout-content {
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 表箱内部布局样式 */
+.meter-layout-container {
+  margin-top: 5px;
+}
+
+.meter-layout-container h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.meter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.meter-slot {
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+  font-size: 10px;
+  background: #ecf0f1;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.meter-slot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.meter-slot.empty {
+  background: #f8f9fa;
+  color: #95a5a6;
+  border-style: dashed;
+}
+
+.meter-slot.normal {
+  background: #d5f4e6;
+  border-color: #27ae60;
+}
+
+.meter-slot.comm-error {
+  background: #fadbd8;
+  border-color: #e74c3c;
+}
+
+.meter-slot.voltage-error {
+  background: #fdeaa7;
+  border-color: #f39c12;
+}
+
+.meter-slot.data-error {
+  background: #d6eaf8;
+  border-color: #3498db;
+}
+
+.meter-slot.owing {
+  box-shadow: 0 0 0 2px #e74c3c;
+}
+
+/* 用电类型样式 */
+.meter-slot.phase-a {
+  border-left: 4px solid #e74c3c;
+}
+
+.meter-slot.phase-b {
+  border-left: 4px solid #f39c12;
+}
+
+.meter-slot.phase-c {
+  border-left: 4px solid #3498db;
+}
+
+.meter-id {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 2px;
+}
+
+.meter-user {
+  font-size: 9px;
+  color: #34495e;
+  margin-bottom: 2px;
+}
+
+.meter-type {
+  font-size: 8px;
+  color: #7f8c8d;
+  margin-bottom: 2px;
+}
+
+.meter-power-type {
+  font-size: 8px;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.meter-voltage {
+  font-size: 9px;
+  color: #27ae60;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.meter-status {
+  font-size: 8px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.8);
+}
+
+.owing-amount {
+  font-size: 7px;
+  color: #e74c3c;
+  font-weight: bold;
+  background: rgba(231, 76, 60, 0.1);
+  padding: 1px 2px;
+  border-radius: 2px;
+  margin-top: 1px;
+}
+
+/* 负荷监控面板样式 */
+.load-monitor-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 500px;
+  max-height: 80vh;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.station-selector {
+  margin-bottom: 20px;
+}
+
+.station-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.station-item {
+  padding: 10px;
+  border: 1px solid #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.station-item:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+}
+
+.station-item.selected {
+  background: #e3f2fd;
+  border-color: #3498db;
+}
+
+.station-name {
+  display: block;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.station-load {
+  display: block;
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 2px;
+}
+
+.load-chart-container {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.load-chart {
+  position: relative;
+  margin: 20px 0;
+}
+
+.chart-y-axis {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #7f8c8d;
+}
+
+.chart-area {
+  margin-left: 20px;
+}
+
+.chart-x-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #7f8c8d;
+  padding: 0 30px;
+}
+
+.load-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* 表箱展示面板样式 */
+.meter-boxes-panel {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 80vw;
+  max-height: 80vh;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.meter-boxes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.meter-box-card {
+  border: 1px solid #ecf0f1;
+  border-radius: 6px;
+  padding: 15px;
+  background: #f8f9fa;
+}
+
+.box-header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 10px;
+}
+
+.box-header h4 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.box-address {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.meter-layout-display {
+  margin: 15px 0;
+}
+
+.box-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ecf0f1;
+}
+
+/* 异常设备静态标识（适合打印） */
+.meter-slot.comm-error::before,
+.meter-slot.voltage-error::before,
+.meter-slot.data-error::before {
+  content: "⚠";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* 欠费用户静态标识 */
+.meter-slot .owing-amount {
+  background: #e74c3c !important;
+  color: white !important;
+  font-weight: bold;
+  border: 2px solid #c0392b !important;
+}
+
+/* 打印样式优化 */
+@media print {
+  .meter-slot.comm-error,
+  .meter-slot.voltage-error,
+  .meter-slot.data-error {
+    border: 3px solid #000 !important;
+    background: repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 2px,
+      #000 2px,
+      #000 4px
+    ) !important;
+  }
+
+  .owing-amount {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #000 !important;
+  }
+
+  /* 异常设备图例 */
+  .validation-panel::after {
+    content: "图例: ⚠异常设备 ■欠费用户 ▨通信故障";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 10px;
+    background: white;
+    padding: 5px;
+    border: 1px solid #000;
+  }
+}
+
+/* 异常表计清单定位样式 */
+.abnormal-item {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.abnormal-item:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.locate-btn {
+  font-size: 10px;
+  color: #3498db;
+  margin-top: 5px;
+  text-align: right;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.panel-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 定位按钮样式 */
+.validation-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.locate-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.locate-btn:hover {
+  background: #0056b3;
+}
+
+/* 异常设备地图标识样式 */
+.abnormal-device-circle {
+  border: 3px solid #ff0000;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.abnormal-device-circle.warning {
+  border-color: #ffa500;
+  background: rgba(255, 165, 0, 0.1);
+  border-style: dashed;
+}
+
+/* 打印时异常设备优化 */
+@media print {
+  .abnormal-device-circle {
+    border-width: 4px !important;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      #ff0000 2px,
+      #ff0000 4px
+    ) !important;
+  }
+
+  .abnormal-device-circle.warning {
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      #ffa500 2px,
+      #ffa500 4px
+    ) !important;
+  }
+
+  /* 添加异常设备图例 */
+  .map-container::after {
+    content: "异常设备图例: ⚠严重异常(红色实线圆圈) ⚠一般异常(橙色虚线圆圈) ⚠表箱异常(红色表箱图标)";
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 10px;
+    border: 2px solid #000;
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 400px;
+    line-height: 1.4;
+  }
+}
+
+/* 信息窗口样式 */
+.amap-info-window {
+  z-index: 9999 !important;
+}
+
+.amap-info-window .amap-info-content {
+  background: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+.amap-info-window .amap-info-sharp {
+  border-top-color: white !important;
+}
